@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: tiakia的个人博客
+title: tiakia的博客
 subtitle: 爱不爱别说话
 description:
 author: tiakia
 language: zh-CN
 timezone:
-keywords: Web,JS,Hexo,github,react-native
+keywords: Hexo,github,react-native,git
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.tiankai.party

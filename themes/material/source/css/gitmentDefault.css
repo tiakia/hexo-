@@ -230,7 +230,13 @@ a.gitment-comment-name:visited {
   margin-top: -30px;
   margin-right: 15px;
 }
-
+@media screen and (max-width:415px) {
+  .gitment-editor-login {
+    float: right;
+    margin-top: -65px;
+    margin-right: 15px;
+  }
+}
 a.gitment-footer-project-link,
 a.gitment-footer-project-link:visited,
 a.gitment-editor-login-link,

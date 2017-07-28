@@ -4,9 +4,9 @@
 
 # Head info
 head:
-    favicon: "/img/logo-t.png"
-    high_res_favicon: "/img/logo-t.png"
-    apple_touch_icon: "/img/logo-t.png"
+    favicon: "http://ostu98x74.bkt.clouddn.com/theme/logo-t.png"
+    high_res_favicon: "http://ostu98x74.bkt.clouddn.com/theme/logo-t.png"
+    apple_touch_icon: "http://ostu98x74.bkt.clouddn.com/theme/logo-t.png"
     keywords: Hexo,Js,React-native,Web
     site_verification:
         google:
@@ -70,11 +70,11 @@ background:
 
 # Images Settings
 img:
-    logo: "/img/logo-t.png"
-    avatar: "/img/avatar.jpg"
-    daily_pic: "/img/daily_pic.jpg"
-    sidebar_header: "/img/sidebar_header-t.jpg"
-    random_thumbnail: "/img/random/material-"
+    logo: "http://ostu98x74.bkt.clouddn.com/theme/logo-t.png"
+    avatar: "http://ostu98x74.bkt.clouddn.com/theme/avatar.jpg"
+    daily_pic: "http://ostu98x74.bkt.clouddn.com/theme/daily_pic.jpg"
+    sidebar_header: "http://ostu98x74.bkt.clouddn.com/theme/sidebar_header-t.jpg"
+    random_thumbnail: "http://ostu98x74.bkt.clouddn.com/random/material-"
     footer_image:
         #upyun_logo:
             #link: "https://www.upyun.com/"
@@ -249,5 +249,5 @@ sitemap:
 donate:
   enable: true
   text: Enjoy it ? Donate me !  欣赏此文？求鼓励，求支持！
-  wechat: "/img/donate/wechat.jpg"
-  alipay: "/img/donate/ali.jpg"
+  wechat: "http://ostu98x74.bkt.clouddn.com/donate/ali.jpg"
+  alipay: "http://ostu98x74.bkt.clouddn.com/donate/wechat.jpg"

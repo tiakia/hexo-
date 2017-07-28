@@ -201,9 +201,13 @@ materialcdn:
 
 # Comment Systems
 # Available value of "use":
-#     disqus | disqus_click | changyan | 163gentie
+#     disqus | disqus_click | changyan | 163gentie | gitment
 comment:
-    use: disqus_click
+    use: gitment
+    owner: tiakia #你的github账号
+    repo: tiakiaBlogComment #github评论的repo
+    client_id: d45abc7a6db571b50af9 #github client_id
+    client_secret: 15ab54f8f528045cdf07d8dbb2d4c0faa69f9462 #github client_secret
     shortname: # duoshuo or disqus shortname
     changyan_appid:
     changyan_conf:

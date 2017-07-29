@@ -11,15 +11,35 @@
             <%- page.content %>
         </div>
     <% } %>
-    
+    <% if(theme.copyright.enable) { %>
+      <div style="border: 1px solid black">
+        <div style="margin-left:10px">
+            <span style="font-weight:blod">版权声明</span>
+            <img src="<%= theme.copyright.img %>" >
+            <br/>
+            <p style="font-size: 10px;line-height: 30px">
+              <a href="<%= theme.copyright.site %>" style="color:#258FC6"><%= theme.copyright.siteName %></a> 
+              by 
+              <a href="<%= theme.copyright.site %>" style="color:#258FC6"><%= config.author %></a> 
+              is licensed under a 
+              <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.
+              <br/>
+            由<a href="<%= theme.copyright.site %>" style="color:#258FC6">田凯</a>创作并维护的<a href="<%= theme.copyright.site %>" style="color:#258FC6">tc9011's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+            本文首发于<a href="<%= theme.copyright.site %>" style="color:#258FC6"><%= theme.copyright.siteName %></a> 博客（ <a href="<%= theme.copyright.site %>" style="color:#258FC6">http://www.tiankai.party</a> ），版权所有，侵权必究。</p>
+        </div>
+    </div>
+    <% } %>
     <% if (theme.donate) { %>
   <!-- css -->
   <style type="text/css">
       .center {
           text-align: center;
       }
-      .hidden {
-          display: none;
+      #donate_guide.noActive,#donate_board.noActive  {
+          /*display: none;*/
+          height:0;
+          opacity:0;
+          visibility: hidden;
       }
     .donate_bar a.btn_donate{
       display: inline-block;
@@ -36,7 +56,15 @@
       transition: background 0s;
      
     }
-
+    #donate_guide{
+      opacity:1;
+      visibility: visible;
+      -webkit-transition: all .3s linear;
+      -moz-transition: all .3s linear;
+      -o-transition: all .3s linear;
+      -ms-transition: all .3s linear;
+      transition: all .3s linear;
+    }
     .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
     .donate_bar .donate_txt {
       display: block;
@@ -45,7 +73,7 @@
       margin-top:10px;
     }
     .bold{ font-weight: bold; }
-    @media screen and (max-width:460px) {
+    @media screen and (max-width:500px) {
       #donate_guide>a{
         display:block;
       }
@@ -56,55 +84,55 @@
     <!-- Donate Module -->
     <div id="donate_module">
 
-  <!-- btn_donate & tips -->
-  <div id="donate_board" class="donate_bar center">
-      <br>
-      ------------------------------------------------------------------------------------------------------------------------------
-      <br>
-    <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
-    <span class="donate_txt">
-      <%= theme.donate.text %>
-    </span>
-      
-    
-  </div>
-  <!-- /btn_donate & tips -->
-
-  <!-- donate guide -->
-    
-  <div id="donate_guide" class="donate_bar center hidden">
+    <!-- btn_donate & tips -->
+    <div id="donate_board" class="donate_bar center">
         <br>
-      ------------------------------------------------------------------------------------------------------------------------------
-      <br>
-
-    <a href="<%= theme.donate.wechat %>" title="用微信扫一扫哦~" class="fancybox" rel="article0">
-      <img src="<%= theme.donate.wechat %>" title="微信打赏 Colin" height="190px" width="200px"/>
-    </a>
+        ------------------------------------------------------------------------------------------------------------------------------
+        <br>
+      <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+      <span class="donate_txt">
+        <%= theme.donate.text %>
+      </span>
         
-        &nbsp;&nbsp;
+      
+    </div>
+    <!-- /btn_donate & tips -->
 
-    <a href="<%= theme.donate.alipay %>" title="用支付宝扫一扫即可~" class="fancybox" rel="article0">
-      <img src="<%= theme.donate.alipay %>" title="支付宝打赏 Colin" height="190px" width="200px"/>
-    </a>
+    <!-- donate guide -->
+      
+    <div id="donate_guide" class="donate_bar center noActive">
+          <br>
+        ------------------------------------------------------------------------------------------------------------------------------
+        <br>
 
-    <span class="donate_txt">
-      <%= theme.donate.text %>
-    </span>
+      <a href="<%= theme.donate.wechat %>" title="用微信扫一扫哦~" class="fancybox" rel="article0">
+        <img src="<%= theme.donate.wechat %>" title="微信打赏 Colin" height="190px" width="200px"/>
+      </a>
+          
+          &nbsp;&nbsp;
 
-  </div>
-  <!-- /donate guide -->
+      <a href="<%= theme.donate.alipay %>" title="用支付宝扫一扫即可~" class="fancybox" rel="article0">
+        <img src="<%= theme.donate.alipay %>" title="支付宝打赏 Colin" height="190px" width="200px"/>
+      </a>
 
-  <!-- donate script -->
-  <script type="text/javascript">
-    document.getElementById('btn_donate').onclick = function() {
-      $('#donate_board').addClass('hidden');
-      $('#donate_guide').removeClass('hidden');
-    }
-  </script>
-  <!-- /donate script -->
+      <span class="donate_txt">
+        <%= theme.donate.text %>
+      </span>
+
+    </div>
+    <!-- /donate guide -->
+
+    <!-- donate script -->
+    <script type="text/javascript">
+      document.getElementById('btn_donate').onclick = function() {
+        $('#donate_board').addClass('noActive');
+        $('#donate_guide').removeClass('noActive');
+      }
+    </script>
+    <!-- /donate script -->
 
   
-</div>
-<!-- /Donate Module -->
-   <% } %>
+  </div>
+  <!-- /Donate Module -->
+  <% } %>
 </div>

@@ -54,7 +54,7 @@ gitment-container {
 }
 
 .gitment-header-container {
-  margin: 19px 0;
+  margin: 19px 0 30px;
 }
 
 .gitment-header-like-btn,
@@ -91,7 +91,11 @@ a.gitment-header-issue-link:visited {
   line-height: 30px;
   color: #666;
 }
-
+@media screen and (max-width:400px){
+  a.gitment-header-issue-link{
+    display:none;
+  }
+}
 a.gitment-header-issue-link:hover {
   color: #666;
 }
@@ -233,7 +237,7 @@ a.gitment-comment-name:visited {
 @media screen and (max-width:415px) {
   .gitment-editor-login {
     float: right;
-    margin-top: -65px;
+    margin-top: -70px;
     margin-right: 15px;
   }
 }

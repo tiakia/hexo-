@@ -27,10 +27,8 @@
         }
     %>
     <title>
-        <% if (title) { %>
-            <%= title + ' | ' %>
-        <% } %>
-        <%= config.title %>
+        
+        <%= config.title + " | "%><%= config.subtitle + " - "%><%= config.description %>
     </title>
 
     <!-- dns prefetch -->
@@ -42,7 +40,7 @@
         <link rel="dns-prefetch" href="<%= theme.leancloud.av_core_mini %>"/>
     <% } %>
     <% if(theme.comment.use == "changyan"){ %>
-        <link rel="dns-prefetch" href="https://changyan.sohu.com"/>
+        <link rel="dns-prefetch" rel="external nofollow" href="https://changyan.sohu.com"/>
     <% } %>
     <% if(theme.analytics.use === "baidu") { %>
         <link rel="dns-prefetch" href="https://hm.baidu.com"/>
@@ -51,10 +49,10 @@
         <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
     <% } %>
     <% if(theme.analytics.use === "cnzz") { %>
-        <link rel="dns-prefetch" href="https://s95.cnzz.com"/>
+        <link rel="dns-prefetch" rel="external nofollow" href="https://s95.cnzz.com"/>
     <% } %>
     <% if(theme.busuanzi.enable === true) { %>
-        <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+        <link rel="dns-prefetch"  href="https://busuanzi.ibruce.info"/>
     <% } %>
     <% if(theme.fonts.host === "google") { %>
         <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
@@ -73,7 +71,7 @@
     <meta name="theme-color" content="<%= theme.uiux.android_chrome_color %>">
     <meta name="author" content="<%= config.author %>">
     <meta name="description" itemprop="description" content="<% if(page.description) { %><%= page.description %><% } else if(page.excerpt){ %><%= strip_html(page.excerpt).replace(/^s*/, '').replace(/s*$/, '') %><% } else if (config.description){ %><%= config.description %><% } %>">
-    <meta name="keywords" content="<%= theme.head.keywords %><% if(page.tags && page.tags.each) { page.tags.each(function(tag) { %><%- ',' + tag.name %><% })} %>">
+    <meta name="keywords" content="<%= theme.head.keywords %><%= page.keywords %>">
 
     <!-- Site Verification -->
     <% if(theme.head.site_verification.google) { %><meta name="google-site-verification" content="<%= theme.head.site_verification.google %>" /><% } %>

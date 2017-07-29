@@ -7,10 +7,42 @@
         <!--Copyright-->
         <div id="copyright">
             <p>Copyright&nbsp;©<% if(theme.copyright_since) { %>&nbsp;<%= theme.copyright_since %>&nbsp;-<% } %><script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script><%- config.title %></p>
-            <p>本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
-            你是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴</p>
+            <div class='visitBlogCount'>
+                <p class='visitAmount'>
+                    <i class="material-icons">visibility</i>
+                    <span>
+                        访问量<span id="busuanzi_value_site_pv"></span> 
+                    </span>
+                </p>
+                
+                <p class='visitPerson'>
+                    <i class="material-icons">person</i>
+                    <span>
+                        访问用户<span id="busuanzi_value_site_uv"></span>
+                    </span>
+                </p>
+            </div>
         </div>
-
+        <style>
+            .visitBlogCount>p{
+                display:inline-block;
+                height: 30px;
+                line-height: 30px;
+            }
+            .visitBlogCount>p>i{
+                position: relative;
+                top: 6px;
+                left: -5px;
+            }
+            .visitBlogCount>p>span{
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+            }
+            .visitAmount{
+                margin-right: 10px;
+            }
+        </style>
         <!-- Paradox Footer Right Section -->
 
         <!--
@@ -23,8 +55,8 @@
 
         <!--<div class="mdl-mini-footer--right-section">
             <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" rel="external nofollow" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>-->
     <% } %>

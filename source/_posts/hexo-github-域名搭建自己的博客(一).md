@@ -4,9 +4,8 @@ date: 2017-07-11 21:10:05
 tags: 教程
 categories: hexo
 ---
-# 如何使用hexo+github快速搭建一个属于自己的博客
 
-### 我是先注册的域名，我们就先从注册域名开始吧
+我是先注册的域名，我们就先从注册域名开始吧
 
 1. 登录[万网](https://wanwang.aliyun.com)
 2. 输入一个你喜欢的域名，eg: baidu

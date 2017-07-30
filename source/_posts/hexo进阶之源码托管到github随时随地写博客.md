@@ -10,7 +10,7 @@ thumbnail:
 
 1.首先要先弄明白我们每次执行==hexo d -g==这是把你写好的markdown编译成HTML然后提交到git，而我们要做的是，就像随时随地都拿着一个U盘一样，blog的源码就在U盘里，可以在多台电脑上写自己博客。但是做为程序员，到哪都拿着个U盘才能写博客，是不是太low了，哈哈。还好我们有git。
 2.我们先分析一下源码的文件
-<img src='/img/hexo/file_dir.png'/>
+<img src='http://ostu98x74.bkt.clouddn.com/hexo/file_dir.png'/>
 
 
 3.不需要提交的 打开==gitignore==文件里面的就是

@@ -12,20 +12,46 @@
         </div>
     <% } %>
     <% if(theme.copyright.enable) { %>
+      <style>
+        .linkColor{
+            color:#258FC6
+        }
+        .copyrightFont{
+            padding-left:10px;
+        }
+        .copyrightTitle{
+          font-weight:bold;
+          font-size:15px;
+          display:block;
+          padding-left:10px;
+          margin-top:5px;
+          margin-bottom:5px;
+        }
+      </style>
       <div style="border: 1px solid black">
-        <div style="margin-left:10px">
-            <span style="font-weight:blod">版权声明</span>
-            <img src="<%= theme.copyright.img %>" >
+        <div>
+            <span class='copyrightTitle'>版权声明</span>
+            <img src="<%= theme.copyright.img %>">
             <br/>
-            <p style="font-size: 10px;line-height: 30px">
-              <a href="<%= theme.copyright.site %>" style="color:#258FC6"><%= theme.copyright.siteName %></a> 
+            <p class='copyrightFont'>
+              <a href="<%= theme.copyright.site %>" class='linkColor'><%= theme.copyright.siteName %></a> 
               by 
-              <a href="<%= theme.copyright.site %>" style="color:#258FC6"><%= config.author %></a> 
+              <a href="<%= theme.copyright.site %>"  class='linkColor'><%= config.author %></a> 
               is licensed under a 
-              <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.
+              <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"  class='linkColor'>Creative Commons BY-NC-ND 4.0 International License</a>.
               <br/>
-            由<a href="<%= theme.copyright.site %>" style="color:#258FC6">田凯</a>创作并维护的<a href="<%= theme.copyright.site %>" style="color:#258FC6">tc9011's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
-            本文首发于<a href="<%= theme.copyright.site %>" style="color:#258FC6"><%= theme.copyright.siteName %></a> 博客（ <a href="<%= theme.copyright.site %>" style="color:#258FC6">http://www.tiankai.party</a> ），版权所有，侵权必究。</p>
+              由
+              <a href="<%= theme.copyright.site %>"  class='linkColor'><%= theme.copyright.siteAuthor%></a>
+              创作并维护的
+              <a href="<%= theme.copyright.site %>"  class='linkColor'><%= theme.copyright.siteName %></a>
+              采用
+              <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"  class='linkColor'>创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。
+              <br/>
+              本文首发于
+              <a href="<%= theme.copyright.site %>"  class='linkColor'><%= theme.copyright.siteName %></a>
+              （ <a href="<%= theme.copyright.site %>"  class='linkColor'><%= theme.copyright.site %></a> ）
+              ，版权所有，侵权必究。
+            </p>
         </div>
     </div>
     <% } %>

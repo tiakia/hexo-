@@ -1,5 +1,5 @@
 ---
-title: '''Emacs使用笔记（一）'''
+title: Emacs使用笔记（一）
 tags: [Emacs]
 date: 2017-08-04 22:57:27
 categories: Emacs
@@ -28,12 +28,23 @@ keywords: Emacs
 行的行尾 : M-e 光标会向下走
 撤销 : C-/
 删除一行 : C-k 光标要在行首
+CTRL+d相当于键盘上的DELETE键，
 先标记 C+shift+2(Ctrl+@) 然后就通过上下左右键选择好复制的区域，然后：
 `C-w` 剪切
 `M-w` 复制
 `C-y` 粘贴
-搜索 `C-s` 输入搜索的关键词，然后通过`Backspace`键和`C-s`控制搜索的前后
+搜索 `C-s` 输入搜索的关键词，然后通过`C-r`键和`C-s`控制搜索的前后
 全选 : `C-x h`
+格式化对齐: `C-M-\`
 打开新窗口 : `M-x make-frame`
 打开文件 : `C-x C-f` 然后输入文件名字，如果有直接打开，如果没有创建，然后关闭的时候会提醒你是否保存，或者自己保存`C-x C-s`。
+主题改变 `M-x customize-themes`
+
+打开新的窗口 `M-x make-frame`
+
+显示行号 `M-x linum-mode`
+
+到文件末尾 `M->`
+到文件开头 `M-<`
+推荐世界级大神[Purcell](https://github.com/purcell/emacs.d)的配置，windows下ui界面有点卡
 今天用到的快捷键大概就这些，字体选择的我直接`Options - Set Default Font`,然后选择的。大概就这么多，以后继续写，晚安。

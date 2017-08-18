@@ -4,9 +4,9 @@
 
 # Head info
 head:
-    favicon: "http://ostu98x74.bkt.clouddn.com/theme/logo-t.png"
-    high_res_favicon: "http://ostu98x74.bkt.clouddn.com/theme/logo-t.png"
-    apple_touch_icon: "http://ostu98x74.bkt.clouddn.com/theme/logo-t.png"
+    favicon: "http://ostu98x74.bkt.clouddn.com/theme/favicon.jpg"
+    high_res_favicon: "http://ostu98x74.bkt.clouddn.com/theme/favicon.jpg"
+    apple_touch_icon: "http://ostu98x74.bkt.clouddn.com/theme/favicon.jpg"
     keywords: Hexo,Js,React-native,Web
     site_verification:
         google:
@@ -70,7 +70,8 @@ background:
 
 # Images Settings
 img:
-    logo: "http://ostu98x74.bkt.clouddn.com/themelogo_emacs.png"
+#    logo: "/img/logo.png"
+    logo: 'http://ostu98x74.bkt.clouddn.com/theme/logo.jpg'
     avatar: "http://ostu98x74.bkt.clouddn.com/theme/avatar.jpg"
     daily_pic: "http://ostu98x74.bkt.clouddn.com/theme/daily_pic.jpg"
     sidebar_header: "http://ostu98x74.bkt.clouddn.com/theme/sidebar_header-t.jpg"

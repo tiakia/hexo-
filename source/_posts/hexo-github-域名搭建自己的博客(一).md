@@ -19,7 +19,7 @@ categories: hexo
     <img src='http://ostu98x74.bkt.clouddn.com/hexo/jiexi.png'/>
 6. 这里有几个参数要填写对
     + 记录类型 选择CNAME 因为代码是托管在github上的
-    + 主机记录 这个是访问你域名的前缀，一般都填 wwww
+    + 主机记录 这个是访问你域名的前缀，一般都填 www
     + 解析线路 默认就行
     + 记录值 这个地方填写的是你github的地址，（你的账户名).github.io
     + 点击保存，等十分钟后，解析才会成功

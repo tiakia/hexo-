@@ -1,12 +1,12 @@
 ---
-title: hexo进阶之自定义主题添加赞赏功能，版权信息，评论模块
-tags: hexo,gitment,donate
+title: hexo进阶之自定义主题添加赞赏功能，版权信息，Gitment评论模块
+tags: gitment,hexo
 date: 2017-07-28 11:43:25
 categories: hexo
 description:
 thumbnail:
 ---
-折腾hexo有一段时间了，差不多基本的功能都有了，现在分享一下如何给自己的博客添加赞赏功能，版权信息，评论模块。前俩个功能都差不多，都是在模板文件里添加代码，第三个评论使用的gitment,作者使用的是github的`issue`页面,比较坑的是每次加载js都要耗费很多时间，css可以本地加载，js我没找到源码，下一步要做的优化就是使用npm安装再通过import导入，这点欢迎大神指导。
+折腾hexo有一段时间了，差不多基本的功能都有了，现在分享一下如何给自己的博客添加赞赏功能，版权信息，评论模块。前俩个功能都差不多，都是在模板文件里添加代码，第三个评论使用的gitment,作者使用的是github的`issue`页面,比较坑的是每次加载js都要耗费很多时间，css可以本地加载，js的话我找了一个简便办法，在gitment部分会细说。
 ## Donate 赞赏功能
 
 1.既然是要自定义，肯定也要在主题配置文件里设置，打开`matetial - _config.yml`,在末尾添加一下代码：
@@ -206,12 +206,14 @@ comment:
 ![enter description here][2]
 
 
-5.因为主题也带有评论框架，所以我找了一下他自带的评论框架的代码。首先找到的是`material - layout - _partial - comment.ejs`,这里显示他引用的代码源自`material - layout - _widget - comment`然后根据主题配置文件中`theme.comment.use`填写的字段选择加载对应的文件夹
+5.因为主题也带有评论框架，所以我找了一下他自带的评论框架的代码。首先找到的是`material - layout - _partial - comment.ejs`,这里显示他引用的代码源自`material - layout - _widget - comment`然后根据主题配置文件中`theme.comment.use`填写的字段选择加载对应的文件夹  
+
 6.首先，我在`_widget - comment`下新建一个文件夹`gitment`，在里面新建了一个`enter.ejs`
 7.然后，贴入以下代码：[更多配置请查看官网](https://github.com/imsun/gitment)
+
 ```
 <%- css('css/gitmentDefault') %>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<%- js('js/gitment.browser.js') %>
 
 <style>
 	#container{
@@ -288,7 +290,7 @@ comment:
 }
 
 ```
-
+#### js获取方式，去作者的git上把项目克隆下来，然后在文件夹内运行`npm install`，安装完依赖后，运行`wepback`,在该文件夹内就会出现一个dist文件夹，里面的`gitment.browser.js`,就是js文件。  文件放在和css文件同目录的js文件夹内即可。
 
 9.初始化评论页面编译发布后，你需要访问你发布的页面并使用你的 GitHub 账号登录（请确保你的账号是你在主题配置文件里的 repo 的 owner），点击初始化`initialize comments`按钮,之后其他用户才可在该页面发表评论。
 

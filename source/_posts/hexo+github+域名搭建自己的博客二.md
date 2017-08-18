@@ -1,5 +1,5 @@
 ---
-title: hexo+github+域名搭建自己的博客（二）
+title: hexo+github+域名搭建自己的博客二
 date: 2017-07-16 21:10:05
 tags: 教程
 categories: hexo

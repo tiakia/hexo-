@@ -34,8 +34,9 @@
 	    return container
 	  }
 	}
+	//console.log(location.href);
 	const gitment = new Gitment({
-	 // id: 'window.location.pathname', // optional
+	  id: 'window.location.pathname', // optional
 	  owner: '<%- theme.comment.owner %>',
 	  repo: '<%- theme.comment.repo %>',
 	  oauth: {

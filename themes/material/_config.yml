@@ -148,7 +148,7 @@ sns_share:
 sidebar:
     dropdown:
         Email Me:
-            link: "http://m0.mail.sina.com.cn"
+            link:
             icon: email
     homepage:
         use: true

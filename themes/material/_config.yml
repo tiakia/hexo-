@@ -147,9 +147,12 @@ sns_share:
 # Sidebar Customize
 sidebar:
     dropdown:
-        Email Me:
-            link:
-            icon: email
+        # Email Me:
+        #     link: 
+        #     icon: email
+        Github:
+          link: "https://github.com/tiakia"
+          icon: email
     homepage:
         use: true
         icon: home

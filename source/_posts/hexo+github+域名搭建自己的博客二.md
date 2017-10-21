@@ -8,6 +8,7 @@ categories: hexo
 ### [hexo官网传送地址](https://hexo.io)
  #### hexo 是什么
  hexo是一个基于nodejs的搭建自己博客框架，使用它你可以快速创建一个漂亮的博客，配合上自己的域名+github 就是一个完美的个人空间。
+ <!-- more -->
  ### 第一步 安装软件
 ##### [Git](https:///git-scm.com/downloads)
 

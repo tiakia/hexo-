@@ -1,0 +1,141 @@
+---
+title: js中的深拷贝和浅拷贝
+tags: [javaScript]
+date: 2017-10-17 12:36:37
+categories: javaScript
+description:
+thumbnail:
+keywords:
+---
+面试的时候一个老生常谈的话题，什么是浅拷贝，什么是深拷贝，优缺点，写一个函数实现深拷贝。
+
+> 首先深复制和浅复制只针对像 Object, Array 这样的复杂对象的。简单来说，浅复制只复制一层对象的属性，而深复制则递归复制了所有层级。
+<!-- more -->
+这里要和赋值运算区分开，以前认为‘obj1 = obj2‘就是浅拷贝，其实不是。
+
+```
+eg:
+
+var obj = [1,2,3];
+var obj1 = obj;
+obj1[0] = 4;
+console.log(obj);//  ​[4,2,3]
+console.log(obj1);//[4,2,3]
+```
+在js中声明一个引用类型的数据（array 或 object），变量名保存的其实是一个地址，这个地址指向了真正存放数据的地方。obj和obj1中存放的是一个相同的地址，地址指向同一个数据，所以在修改了其中一个的值后，另一个的值也会跟着改变。这不是浅拷贝。
+
+>#### 浅拷贝
+
+    ​
+    一起看一下知乎上的一个例子
+
+
+```
+var obj1 = {
+  "name": "lili",
+  "age": "18",
+  "friends": ["hanmeimei","xiaoming","xiaohong"]
+};
+
+var obj2 = obj1;
+
+var obj3 = shallowCopy(obj1);
+
+function shallowCopy(src){
+  var dst = {};
+  for(var key in src){
+    if(src.hasOwnProperty(key)){
+      dst[key] = src[key];
+    }
+  }
+  return dst;
+}
+
+obj2.name = 'lisi';
+obj3.age = "20";
+
+obj2.friends[1] = ['1','2'];
+obj3.friends[2] = ['3','4'];
+
+console.log(obj1);
+
+obj1 = {
+    "name": "lisi",
+    "age": "18",
+    "friends": ["hanmeimei",["1","2"],["3", "4"]]
+}
+
+console.log(obj2);
+
+obj2 = {
+    "name": "lisi",
+    "age": "18",
+    "friends": ["hanmeimei",["1","2"],["3", "4"]]
+}
+
+console.log(obj3);
+
+obj3 = {
+    "name": "lili",
+    "age": "20",
+    "friends": ["hanmeimei",["1","2"],["3", "4"]]
+}
+```
+##### 来说一下大体的过程:
+
+1.先定义obj1,然后赋值给了obj2,然后浅拷贝obj3。
+2.obj2改变"name"属性
+3.obj3改变"age"属性
+4.obj2改变"friends"数组第二个数据
+5.obj3改变"friends"数组第三个数据
+
+##### 最后打印出的结果得出结论：
+
+1.obj2改变的name属性同样改变了obj1的，但是obj3改变age属性没影响到obj1。
+2.obj2和obj3改变的friends属性的数组，同样改变了obj1的friends数组。
+
+##### 所以我们最后得出了结论：
+1.浅拷贝和赋值不一样，浅拷贝是在内存总新建了一个空间，变量存储的新的地址，
+改变浅拷贝的基础属性的值不会影响到原来的值，
+2.改变引用类型的值会改变原始的值，这是因为，浅拷贝只会赋值一层，对于obj1里面的
+friends(引用类型)的值不会进行复制。
+
+>#### 深拷贝
+
+   深拷贝的意义不言而喻了。
+   浅拷贝： 将obj1的值拷贝的obj3中，但是不包括obj1里面的子对象，obj3中复制的只是friends中保存的地址。
+   深拷贝： 将obj1的值拷贝的obj3中，包括obj1里面的子对象。（并不是复制引用）
+
+深拷贝的实现：
+```
+   var cloneObj = function(obj){
+    var str, newObj = obj.constructor === Array ? [] : {};
+    if(typeof obj !== 'object'){
+              return;
+    }else if(window.JSON){
+          str = JSON.stringify(obj);
+          newObj = JSON.parse(str);
+    }else {
+          for(var i in obj){
+            newObj[i] = typeof obj[i] === "object" ? cloneObj(obj(i)) : obj[i];
+          }
+    }
+    return newObj;
+}
+```
+
+> 最暴力的写法：
+
+```
+ var newObj = JSON.parse(JSON.stringify(obj));
+```
+
+> 另外俩种实现深拷贝的方法
+
+```
+var newObj = object.assign({},obj);
+var newObj = object.creat(obj);
+```
+> 参考链接:
+[Cherry's Blog](http://cherryblog.site/deepcopy.html)
+[知乎](https://www.zhihu.com/question/23031215)

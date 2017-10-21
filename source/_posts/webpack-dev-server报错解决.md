@@ -9,7 +9,7 @@ keywords: webpack
 ---
 
 刚刚试了一下webpack-dev-server --open 本地启服，结果报错，没成功，可是我webpack命令却可以成功，后来经查确认是我启服的端口被占用了，在这里贴一下报错的内容和解决办法。
-
+<!-- more -->
 ![webpack-dev-server](http://ostu98x74.bkt.clouddn.com/webpackwebpack-error.png)
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: hexo进阶之自定义主题添加赞赏功能，版权信息，Gitment评论模块
+title: hexo进阶之自定义material主题添加赞赏功能，版权信息，Gitment评论模块
 tags: gitment,hexo
 date: 2017-07-28 11:43:25
 categories: hexo
@@ -7,6 +7,7 @@ description:
 thumbnail:
 ---
 折腾hexo有一段时间了，差不多基本的功能都有了，现在分享一下如何给自己的博客添加赞赏功能，版权信息，评论模块。前俩个功能都差不多，都是在模板文件里添加代码，第三个评论使用的gitment,作者使用的是github的`issue`页面,比较坑的是每次加载js都要耗费很多时间，css可以本地加载，js的话我找了一个简便办法，在gitment部分会细说。
+<!-- more -->
 ## Donate 赞赏功能
 
 1.既然是要自定义，肯定也要在主题配置文件里设置，打开`matetial - _config.yml`,在末尾添加一下代码：

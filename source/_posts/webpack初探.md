@@ -8,7 +8,7 @@ thumbnail:
 keywords: webpack
 ---
 初次接触webpack是在构建react的时候，那个时候要用到es6的语法，浏览器不支持，官网推荐babel,去了babel官网看的也是一脸懵*，在网上就搜到了webpack,可以集合babel,从而支持es6,现在只要`create-react-app`,就可以构建一个react项目了，真是越来越方便了，这里推荐一个[webpack的简明教程](http://zhaoda.net/webpack-handbook/configuration.html)。
-
+<!-- more -->
 ### 什么是webpack
   webpack专业是模块打包的，相比于gulp,grunt，它更多的是处理资源之间的依赖关系，在需要用到的地方把这些资源打包成一个，也可以减少http请求。  
   webpack的基础是他的配置文件，扩展功能要靠一些`loader`来实现，babel就是一个他的loader,通过各种loaderh还可以打包css,图片等。webpack还可以安装插件来扩展一些功能。

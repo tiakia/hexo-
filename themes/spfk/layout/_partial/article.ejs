@@ -112,6 +112,7 @@
 <% if (!index && theme.showshare){ %>
 <%- partial('share/showshare') %>
 <% } %>
+<div style="background-color: #fff">
 <% if (!index && post.comments){ %>
     <% if (theme.duoshuo.on) { %>
       <%- partial('comments/duoshuo', {
@@ -140,7 +141,7 @@
           }) %>
     <% } %>
 <% } %>
-
+</div>
 
 
 <% if (!index) { %>

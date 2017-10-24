@@ -16,6 +16,7 @@ float | double
 单精度浮点数 | 双精度浮点数
 内存分配4个字节 | 内存分配8个字节
 有效小数位6-7位 | 有效小数位15位
+<!--more-->
 1.java中默认声明的小数是`double`类型的，如`double d=4.0`
 如果声明： `float x = 4.0`则会报错，需要如下写法：`float x = 4.0f`或者`float x = (float)4.0`其中`4.0f`后面的`f`只是为了区别`double`，并不代表任何数字上的意义  
 2.对编程人员而言，double和float的区别是`double精度高，但double消耗内存是float的两倍，且double的运算速度较float稍慢`。

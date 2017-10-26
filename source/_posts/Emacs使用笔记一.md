@@ -2,7 +2,7 @@
 title: Emacs使用笔记一
 tags: [Emacs]
 date: 2017-08-04 22:57:27
-categories: Emacs
+categories: emacs
 description:
 thumbnail:
 keywords: Emacs

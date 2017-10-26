@@ -108,3 +108,48 @@ int[][] scores = {{1,2,3},{4,5,6}};
 int[] num = new int[6];
 int[][] scores = new int[2][3];
 ```
+### java中数组的操作
+#### java中提供了一个Arrays类来对数组进行操作。  
+第一步：要先导入Arrays包
+```
+public com.imooc;
+improt java.util.Arrays; //导入Arrays包。
+```
+第二步：使用Arrays包中的方法对数组进行操作
+```
+package com.imooc;
+import java.uitl.Arrays; //导入Arrays包。
+
+public class HelloWorld{
+    public static void main(String[] args){
+        int[] scores = {79,80,99,50,62};
+        //调用Arrays包中的sort方法对数组进行排序
+        Arrays.sort(scores);
+        //调用Arrays包中的toString将数组转换为字符串
+        System.out.println(Arrays.toString(scores));
+        //[50, 62, 79, 80, 99]
+    }
+}
+```
+
+#### java中对数组的foreach循环
+> 语法
+```
+for(元素类型 元素变量 : 遍历对象){
+    执行代码
+}
+```
+```
+package com.imooc;
+import java.util.Arrays;
+
+public class HelloWorld{
+    public static void main(String[] args){
+        int[] scores = new int[]{89, 72, 64, 58, 99};
+        Arrays.sort(socres);
+        for( int score : scores) {
+            System.out.println(score);//58 68 72 89 99
+        }
+    }
+}
+```

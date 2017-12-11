@@ -3,7 +3,7 @@ title: js如何清除cookie
 tags: [cookie] 
 date: 2017-12-11 09:16:36
 categories: js
-description: js如何清楚cookie
+description: js如何清除cookie
 thumbnail:
 keywords:
 ---

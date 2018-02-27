@@ -3,8 +3,8 @@
 menu:
   主页: /
   #标签云: /tags
-  #时间轴: /timeline
-  #友情链接: /links
+  时间轴: /timeline
+  友情链接: /links
 
 # SubNav
 subnav:
@@ -109,7 +109,7 @@ style:
 # slider的设置
 slider:
   # 是否默认展开tags板块
-  showTags: false
+  showTags: true
 
 # 智能菜单
 # 如不需要，将该对应项置为false
@@ -118,7 +118,7 @@ slider:
   friends: false
 smart_menu:
   innerArchive: '所有文章'
-  friends: '友链'
+  #friends: '友链'
   aboutme: '关于我'
 
 friends:
@@ -136,4 +136,4 @@ aboutme: 我只是一个小前端。
 declare_type: 2
 licensee_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 licensee_name: '知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议'
-licensee_img: #https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png
+licensee_img: https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png

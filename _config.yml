@@ -6,7 +6,7 @@
 title: Tiankai's Blog
 subtitle: 或碌碌无为,或轰轰烈烈
 description: 
-author: tiakia
+author: tiankai
 language: zh-CN
 timezone:
 keywords: Hexo,github,react-native,git
@@ -63,9 +63,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme:  spfk 
-        #yilia 
-        #next 
+theme:  yilia
+        #next
         #material
 
 # Deployment

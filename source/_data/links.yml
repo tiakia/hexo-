@@ -1,10 +1,6 @@
-neoFelhz:
-  link: https://nfz.moe/
-  avatar: https://qiniu.viosey.com/img/blog/favatar/neofelhz1.png
-  descr: "这是一个描述信息"
 创造狮:
   link: http://chuangzaoshi.com/
-  avatar: https://qiniu.viosey.com/img/blog/favatar/chuangzaoshi.png
+  avatar: ./../img/avatar.jpg
   descr: "为创意工作者而设计"
 Colin's Nest:
   link: http://colin1994.github.io

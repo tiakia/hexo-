@@ -1,0 +1,53 @@
+<style>
+    .article-meta {
+        display: none;
+    }
+    #container .article .article-title {
+        padding-right: 0;
+    }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover {
+        border-left: none;
+    }
+    .article-title {
+        font-size: 1.6em
+    }
+    .article-meta {
+        display: none;
+    }
+    .article-entry hr {
+        margin: 0;
+    }
+    #container .article-info-post.article-info {
+      display: none;
+      }
+    #container .article .article-title {
+    padding: 0;
+    }
+</style>
+
+<% if (page.path === "timeline/index.html"){ %>
+    <!-- Tag Cloud Page -->
+    <hr>
+    <%- partial('page-timeline') %>
+
+<% } %>
+<% if (page.path === "links/index.html"){ %>
+    <!-- Tag Cloud Page -->
+    <hr>
+    <%- partial('page-links') %>
+    
+
+<% } %>
+<% if (page.path === "comments/index.html"){ %>
+    <!-- Tag Cloud Page -->
+    <hr>
+    <%- partial('page-comments') %>
+    
+
+<% } %>

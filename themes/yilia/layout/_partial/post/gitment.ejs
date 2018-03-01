@@ -8,6 +8,7 @@ var gitalk  = new Gitalk({
   owner: '<%=theme.gitment_owner%>',
   repo: '<%=theme.gitment_repo%>',
   admin: ['tiakia'],
+  id: decodeURI(location.pathname) 
 })
 gitalk.render('gitalk-container')
 </script>

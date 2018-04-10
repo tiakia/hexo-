@@ -24,11 +24,9 @@ console.log(obj1);//[4,2,3]
 ```
 在js中声明一个引用类型的数据（array 或 object），变量名保存的其实是一个地址，这个地址指向了真正存放数据的地方。obj和obj1中存放的是一个相同的地址，地址指向同一个数据，所以在修改了其中一个的值后，另一个的值也会跟着改变。这不是浅拷贝。
 
->#### 浅拷贝
+> 浅拷贝
 
-    ​
-    一起看一下知乎上的一个例子
-
+​一起看一下知乎上的一个例子
 
 ```
 var obj1 = {
@@ -95,12 +93,13 @@ obj3 = {
 2.obj2和obj3改变的friends属性的数组，同样改变了obj1的friends数组。
 
 ##### 所以我们最后得出了结论：
-1.浅拷贝和赋值不一样，浅拷贝是在内存总新建了一个空间，变量存储的新的地址，
+1.浅拷贝和赋值不一样，浅拷贝是在内存中新建了一个空间，变量存储的新的地址，
 改变浅拷贝的基础属性的值不会影响到原来的值，
 2.改变引用类型的值会改变原始的值，这是因为，浅拷贝只会赋值一层，对于obj1里面的
 friends(引用类型)的值不会进行复制。
 
->#### 深拷贝
+> 深拷贝
+
 
    深拷贝的意义不言而喻了。
    浅拷贝： 将obj1的值拷贝的obj3中，但是不包括obj1里面的子对象，obj3中复制的只是friends中保存的地址。
@@ -117,7 +116,9 @@ friends(引用类型)的值不会进行复制。
           newObj = JSON.parse(str);
     }else {
           for(var i in obj){
-            newObj[i] = typeof obj[i] === "object" ? cloneObj(obj(i)) : obj[i];
+            if(obj.hasOwnProperty(i)){
+              newObj[i] = typeof obj[i] === "object" ? cloneObj(obj(i)) : obj[i];
+            }
           }
     }
     return newObj;
@@ -130,12 +131,62 @@ friends(引用类型)的值不会进行复制。
  var newObj = JSON.parse(JSON.stringify(obj));
 ```
 
-> 另外俩种实现深拷贝的方法
+> 补充
 
 ```
-var newObj = object.assign({},obj);
-var newObj = object.creat(obj);
+Object.assign({},obj)
 ```
+
+- 如果要拷贝obj只有一层数据结构的话那么他可以实现深拷贝
+```
+obj = {
+    name: 'xxx',
+    year: 1988
+}
+var newObj = Object.assign({},obj);
+newObj.name = 'yyy';
+console.log(obj);
+
+obj = {
+  name: 'xxx',
+  year: 1988
+}
+
+console.log(newObj);
+
+newObj = {
+  name: 'yyy',
+  year: 1988
+}
+```
+- 如果obj中有对象或者数组的话，只能拷贝他们的引用，不能用来深拷贝
+```
+obj = {
+    name: 'xxx',
+    year: 1988,
+    friends: ['hmm','zmm']
+}
+var newObj = Object.assign({},obj);
+newObj.name = 'yyy';
+newObj.friends[0] = 'tmm';
+console.log(obj);
+
+obj = {
+    name: 'xxx',
+    year: 1988,
+    friends: ['tmm','zmm']
+}
+
+console.log(newObj);
+
+newObj = {
+    name: 'yyy',
+    year: 1988,
+    friends: ['tmm','zmm']
+}
+```
+
 > 参考链接:
+
 [Cherry's Blog](http://cherryblog.site/deepcopy.html)
 [知乎](https://www.zhihu.com/question/23031215)

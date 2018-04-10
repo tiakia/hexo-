@@ -65,7 +65,11 @@ fs.open('./message.txt','r',function(err,fd){
   console.log(data.toString());
 });
 ```
-2、write或writeSync方法写入内容时，node.js执行以下过程：1将需要写入的数据写入到一个内存缓存区；2待缓存区写满后再将缓存区中的内容写入到文件中；3重复执行步骤1和步骤2，知道数据全部写入文件为止。具体操作如下：
+2、write或writeSync方法写入内容时，node.js执行以下过程：
+1.将需要写入的数据写入到一个内存缓存区；
+2.待缓存区写满后再将缓存区中的内容写入到文件中；
+3.重复执行步骤1和步骤2，直到数据全部写入文件为止。
+具体操作如下：
 ```
 var fs = require('fs');
 var buf = new Buffer('我喜爱编程');

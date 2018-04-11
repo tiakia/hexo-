@@ -97,6 +97,10 @@ search:
   path: search.xml
   field: all
 
+marked:
+  gfm: true
+  breaks: flase
+
 jsonContent:
     meta: false
     pages: false

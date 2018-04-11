@@ -2,7 +2,7 @@
 title: d3.js画地图项目总结
 tags: [javascript]
 date: 2018-03-12 11:00:58
-categories: javascript
+categories: javaScript
 description:
 thumbnail:
 keywords: d3

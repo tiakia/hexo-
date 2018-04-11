@@ -58,3 +58,5 @@ keywords:
   - `Object.protorype.__proto__ === null` (__特殊__)
 
   - 对象是被函数创建的  引申出 `Object.__proto__ === Function.prototype`
+
+> [参考链接](https://www.cnblogs.com/wangfupeng1988/p/3977924.html)

@@ -15,7 +15,7 @@ keywords: grid
 #####   <font color=#f50> display:grid;</font>
  设置父元素布局为grid
 #####   <font color=#f50> grid-gap: 10px 15px;</font>
- 定义每个子元素横向之间分割线为10px,竖立之间的分割线为15px,相当于margin:15px 10px，但是只作用于容器内部。
+ 定义每个子元素竖直方向之间分割线为10px,横向之间的分割线为15px,相当于margin:10px 15px，但是只作用于容器内部。
 ##### <font color=#f50>grid-template-columns: </font>
   
 

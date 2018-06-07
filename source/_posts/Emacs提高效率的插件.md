@@ -1,11 +1,11 @@
 ---
 title: Emacs提高效率的插件
-tags: [Emacs]
+tags: [emacs]
 date: 2018-01-08 11:36:32
 categories: emacs
 description:
 thumbnail:
-keywords: Emacs
+keywords: emacs
 ---
 推荐一些可以提高效率的`emacs`使用效率的插件，使用后可以实现一些 `IDE` 的基本功能了。  
 
@@ -29,7 +29,7 @@ M - x package-install RET pyim RET
 (pyim-basedict-enable)
 (setq default-input-method "pyim")
 (setq pyim-default-scheme 'quanpin)
-(global-set-key (kbd "C-<SPC>") 'toggle-input-method)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
 
 
 ```
@@ -67,6 +67,32 @@ M - x package-install RET ivy RET
 ```
 这只是我的配置，其他的配置可以去查看[github](https://github.com/abo-abo/swiper)  
 这个我主要用的是`C - s`这个可以在buffer的地方,显示出当前文件中关键词以及关键词所在的位置和缩略图。  
+**ps:purcell的配置以及集成了如果是使用的他的配置只需要修改以下的部分就行**
+```
+(when (maybe-require-package 'swiper)
+  (after-load 'ivy
+    (defun sanityinc/swiper-at-point (sym)
+      "Use `swiper' to search for the symbol at point."
+      (interactive (list (thing-at-point 'symbol)))
+      (swiper sym))
+    (global-set-key "\C-s" 'swiper) ;;修改这里
+    ;;(define-key ivy-mode-map (kbd "\C-s") 'sanityinc/swiper-at-point)
+    ))
+
+```
+**我不喜欢每次搜索的时候显示数字**
+```
+(when (maybe-require-package 'ivy)
+  (after-load 'ivy
+    (setq-default ivy-use-virtual-buffers t
+                  ivy-virtual-abbreviate 'fullpath
+                  ivy-count-format "" ;; 修改这里
+                  projectile-completion-system 'ivy
+                  ivy-initial-inputs-alist
+                  '((man . "^")
+                    (woman . "^")))
+
+```
 ### ag
 全局搜索的大杀器，使用了这个就和`sublime`的`find in file`的功能一样。  
 额 这个的话 我只能说我还不会配，当时弄这个的时候，是大佬直接给我发的`ag.exe`然后我配到环境变量  

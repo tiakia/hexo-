@@ -9,7 +9,11 @@ keywords:
 ---
 这里记录几个常用的文件模块，文件模块属于核心模块，使用的时候需要提前引入。
 
-### `fs.open(paht, flags[,mode],callback)`
+
+{% alert info %}
+fs.open(paht, flags[,mode],callback)
+{% endalert %}
+<!-- more  -->
 异步的打开文件
 - **path** - 要打开文件的路径
 - **flags** - 要打开文件的方式 读/写
@@ -23,11 +27,17 @@ keywords:
 - `r+` - 以读写模式打开文件。如果文件不存在则发生异常。
 - `w` - 以写入模式打开文件。文件会被创建（如果文件不存在）或截断（如果文件存在）。
 - `a` - 以追加模式打开文件。如果文件不存在，则会被创建。
-<!-- more  -->
-### `fs.openSync(path, flags[,mode])`
+
+
+{% alert info %}
+fs.openSync(path, flags[,mode])
+{% endalert %}
 fs.open的同步版本，返回一个表示文件描述符的整数
 
-### `fs.read(fd, buffer, offset, length, position, callback)`
+
+{% alert info %}
+fs.read(fd, buffer, offset, length, position, callback)
+{% endalert %}
 - **fd** - 通过open方法成功打开一个文件返回的编号
 - **buffer** - 数据将被写入到的buffer
 - **offset** - 是buffer中开始写入的偏移量
@@ -38,10 +48,16 @@ fs.open的同步版本，返回一个表示文件描述符的整数
     - **bytesRead** - 读取的buffer的字节长度
     - **newBuffer** - 新的`buffer`对象
 
-### `fs.readSync(fd, buffer, offset, length, position)`
+
+{% alert info %}
+fs.readSync(fd, buffer, offset, length, position)
+{% endalert %}
 fs.read的同步版本，返回bytesRead的数量
 
-### `fs.readFile(path[, options], callback)`
+
+{% alert info %}
+fs.readFile(path[, options], callback)
+{% endalert %}
 异步的读取一个文件的全部内容
 - **path** - 要读取文件的路径
 - **options**
@@ -51,7 +67,10 @@ fs.read的同步版本，返回bytesRead的数量
     - **err**
     - **data** - 文件的内容
 
-### `fs.write(fd, buffer[, offset[, length[, position]]], callback)`
+
+{% alert info %}
+fs.write(fd, buffer[, offset[, length[, position]]], callback)
+{% endalert %}
 写入buffer到指定文件
 - **fd** - 通过open方法成功打开一个文件返回的编号
 - **buffer** - 将要写入文件的buffer
@@ -63,13 +82,22 @@ fs.read的同步版本，返回bytesRead的数量
     - **bytesWritten** - 指定从 buffer 写入了多少字节
     - **newBuffer** - 新的`buffer`对象
 
-### `fs.writeSync(fd, buffer[, offset[, length[, position]]])`
+
+{% alert info %}
+fs.writeSync(fd, buffer[, offset[, length[, position]]])
+{% endalert %}
 fs.write()的同步版本
 
-### `fs.writeSync(fd, string[, position[, encoding]])`
+
+{% alert info %}
+fs.writeSync(fd, string[, position[, encoding]])
+{% endalert %}
 fs.write()的同步版本，返回写入的字节数
 
-### `fs.write(fd, string[, position[, encoding]], callback)`
+
+{% alert info %}
+fs.write(fd, string[, position[, encoding]], callback)
+{% endalert %}
 写入 string 到 fd 指定的文件。如果string不是一个字符串，则该值将被强制转换为一个字符串。
 - **encoding** - 是期望的字符串编码。
 - **callback**
@@ -77,7 +105,10 @@ fs.write()的同步版本，返回写入的字节数
     - **written** - 指定传入的字符串被写入多少字节。注意，写入的字节与字符字符是不同的不同于写入buffer，该方法整个字符串必须被写入。不能指定子字符串。 这是因为结果数据的字节偏移量可能与字符串的偏移量不同。
     - **string**
 
-### `fs.writeFile(file, data[, options], callback)`
+
+{% alert info %}
+fs.writeFile(file, data[, options], callback)
+{% endalert %}
 异步地写入数据到文件，如果文件已经存在，则替代文件。
 - **file** - 文件名或文件描述符
 - **data** - 可以是一个字符串或一个 buffer。
@@ -88,10 +119,14 @@ fs.write()的同步版本，返回写入的字节数
 - **callback**
     - **err**
 
-### `fs.writeFileSync(file, data[, options])`
+{% alert info %}
+fs.writeFileSync(file, data[, options])
+{% endalert %}
 fs.writeFile()的同步版本，返回undefined
 
-### `fs.appendFile(file, data[, options], callback)`
+{% alert info %}
+fs.appendFile(file, data[, options], callback)
+{% endalert %}
 异步地追加数据到一个文件，如果文件不存在则创建文件。 data 可以是一个字符串或 buffer。
 - **file** - 文件名或文件描述符
 - **data** - 要添加的内容，字符串或buffer
@@ -102,14 +137,24 @@ fs.writeFile()的同步版本，返回undefined
 - **callback**
     - **err**
 
-### `fs.appendFileSync(file, data[, options])`
+{% alert info %}
+fs.appendFileSync(file, data[, options])
+{% endalert %}
 fs.appendFile() 的同步版本。 返回 undefined。
-### `fs.existsSync(path)`
+
+{% alert info %}
+fs.existsSync(path)
+{% endalert %}
+
  如果文件存在，则返回true，否则返回false。他的异步版本`fs.exists(paht,callback)`已经被废弃了，如果非要用异步检查，推荐使用`fs.access()`替代
 
 不推荐在调用 fs.open，fs.readFile()，fs.writeFile() 之前使用 fs.exists() 检测文件是否存在。这样做会引起竞争条件，因为在两次调用之间，其他进程可能修改文件。作为替代，用户应该直接开/读取/写入文件，当文件不存在时再处理错误。
 
-### `fs.access(path[, mode], callback)`
+
+{% alert info %}
+fs.access(path[, mode], callback)
+{% endalert %}
+
 - **path** - 要检查的文件/目录的路径
 - **mode** - 一个可选的整数，指定要执行的可访问性检查默认：`fs.constants.F_OK`
     -  `fs.constants.F_OK` - path 文件对调用进程可见。 这在确定文件是否存在时很有用，但不涉及 rwx 权限。 如果没指定 mode，则默认为该值。
@@ -119,22 +164,39 @@ fs.appendFile() 的同步版本。 返回 undefined。
 - **callback**
     - **err**
 
-### `fs.accessSync(path[, mode])`
+{% alert info %}
+fs.accessSync(path[, mode])
+{% endalert %}
+
 fs.access() 的同步版本。如果有任何可访问性检查失败则抛出错误，否则什么也不做。
 
-### `fs.unlink(path, callback)`
+{% alert info %}
+fs.unlink(path, callback)
+{% endalert %}
+
 删除一个文件
-### `fs.unlinkSync(path)`
+
+{% alert info %}
+fs.unlinkSync(path)
+{% endalert %}
 同步的`fs.unlink()`,返回 undefined
 
-### `fs.rename(oldPath, newPath, callback)`
+{% alert info %}
+fs.rename(oldPath, newPath, callback)
+{% endalert %}
 将`oldPath`的文件重命名为`newPath`
 - **callback**
      err
-### `fs.renameSync(oldPath, newPath)`
+
+{% alert info %}
+fs.renameSync(oldPath, newPath)
+{% endalert %}
 返回`undefined`
 
-### `fs.readir(path[, options], callback)`
+
+{% alert info %}
+fs.readir(path[, options], callback)
+{% endalert %}
 读取一个目录的内容
 - **path** - 要读取目录的路径
 - **options** - encoding 默认为 utf-8
@@ -142,49 +204,70 @@ fs.access() 的同步版本。如果有任何可访问性检查失败则抛出�
     - **err**
     - **files** - 目录中不包括 '.' 和 '..' 的文件名的数组
 
-### `fs.rmdir(path, callback)`
+
+{% alert info %}
+fs.rmdir(path, callback)
+{% endalert %}
 移除文件夹
 
-### `fs.rmdirSync(path)`
+
+{% alert info %}
+fs.rmdirSync(path)
+{% endalert %}
 `fs.rmdir()`的同步版本，返回`undefined`
 
-### `fs.mkdir(path[, mode], callback)`
+
+{% alert info %}
+fs.mkdir(path[, mode], callback)
+{% endalert %}
 新建文件夹
 - **mode** - 默认为 `0o777`
 - **callback**
     - **err**
 
-### `fs.mkdirSync(path[, mode])`
+
+{% alert info %}
+fs.mkdirSync(path[, mode])
+{% endalert %}
 `fs.mkdir()`的同步版本，返回`undefined`
 
-### `fs.stat(path, callback)`
+{% alert info %}
+fs.stat(path, callback)
+{% endalert %}
 返回文件属性
 - **path**
 - **callback**
     - **err**
     - **stats** - 返回一个如下对象
-```
-Stats {
-  dev: 2114,
-  ino: 48064969,
-  mode: 33188,
-  nlink: 1,
-  uid: 85,
-  gid: 100,
-  rdev: 0,
-  size: 527,
-  blksize: 4096,
-  blocks: 8,
-  atimeMs: 1318289051000.1,
-  mtimeMs: 1318289051000.1,
-  ctimeMs: 1318289051000.1,
-  birthtimeMs: 1318289051000.1,
-  atime: Mon, 10 Oct 2011 23:24:11 GMT,
-  mtime: Mon, 10 Oct 2011 23:24:11 GMT,
-  ctime: Mon, 10 Oct 2011 23:24:11 GMT,
-  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
-```
-### `fs.watch(filename[, options][, listener])`
+
+{% tabbed_codeblock test.js %}
+      <!-- tab js -->
+           Stats {
+             dev: 2114,
+             ino: 48064969,
+             mode: 33188,
+             nlink: 1,
+             uid: 85,
+             gid: 100,
+             rdev: 0,
+             size: 527,
+             blksize: 4096,
+             blocks: 8,
+             atimeMs: 1318289051000.1,
+             mtimeMs: 1318289051000.1,
+             ctimeMs: 1318289051000.1,
+             birthtimeMs: 1318289051000.1,
+             atime: Mon, 10 Oct 2011 23:24:11 GMT,
+             mtime: Mon, 10 Oct 2011 23:24:11 GMT,
+             ctime: Mon, 10 Oct 2011 23:24:11 GMT,
+             birthtime: Mon, 10 Oct 2011 23:24:11 GMT
+           }
+      <!-- endtab -->
+{% endtabbed_codeblock %}
+
+{% alert info %}
+fs.watch(filename[, options][, listener])
+{% endalert %}
 监测文件的改变
 - **filename** - filename 可以是一个文件或一个目录
 - **options**

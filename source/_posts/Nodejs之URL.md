@@ -9,20 +9,21 @@ keywords:
 ---
 ### parse
 ###### 语法
-```
+{% codeblock %}
 url.parse(urlString,bool,bool);
+{% endcodeblock %}
+<!-- more -->
 第二个参数决定query部分以字符串返回还是以对象形式返回，默认为字符串返回即第二个参数默认为false;
 第三个参数表示在没有完整协议串的时候（即无http:/https:）的时候‘//’之后的字符如何解释，若为false即将‘//’之后的当做路径解释，若为true则会将‘//’与‘/’之间的字符串解释为主机
-```
+
 例子：
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 var url = require(url);
 var _url = "http://www.imooc.com:8080/course/list?from=scott&course=node#floor1";
 url.parse(_url)
-```
-<!-- more -->
-输出结果
-```
+<!-- endtab -->
+<!-- tab result -->
 {
     protocol: 'http',// 表示url采用什么协议
     slashed: true,// 是否有斜线
@@ -37,14 +38,17 @@ url.parse(_url)
     path: '/course/list?from=scott&course=node',//路径
     herf: 'http://imooc.com:8080/course/list?from=scott&course=node#floor1'
 }
-```
+
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
 第二个参数
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 //第二个参数bool值，处理query字段,默认是false
 url.parse(_url,true)
-```
-输出结果（看query)
-```
+<!-- endtab -->
+<!-- tab result -->
 {
     protocol: 'http',
     slashed: true,
@@ -59,13 +63,17 @@ url.parse(_url,true)
     path: '/course/list?from=scott&course=node',
     herf: 'http://imooc.com:8080/course/list?from=scott&course=node#floor1'
 }
-```
+
+<!-- endtab -->
+{% endtabbed_codeblock %}
+输出结果（看query)
+
 没有第三个参数
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 url.parse('//imooc.com/course/list',true);
-```
-输出结果
-```
+<!-- endtab -->
+<!-- tab result -->
 {
     protocol: null,
     slashed: null,
@@ -80,13 +88,15 @@ url.parse('//imooc.com/course/list',true);
     path: '//imooc.com/course/list',
     herf: '//imooc.com/course/list'
 }
-```
+
+<!-- endtab -->
+{% endtabbed_codeblock %}
 有第三个参数
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 url.parse('//imooc.com/course/list',true,true);
-```
-输出结果
-```
+<!-- endtab -->
+<!-- tab result -->
 {
     protocol: null,
     slashed: true,
@@ -101,4 +111,6 @@ url.parse('//imooc.com/course/list',true,true);
     path: '/course/list',
     herf: '//imooc.com/course/list'
 }
-```
+
+<!-- endtab -->
+{% endtabbed_codeblock %}

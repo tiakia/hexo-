@@ -9,6 +9,7 @@ keywords:
 ---
 ### __filename
 当前文件被解析过后的绝对路径，该属性其实并非是全局的，而是模块作用域下的
+<!-- more  -->
 ### __dirname
 返回当前模块文件所在目录解析后的绝对路径，该属性也不是全局的
 ### module
@@ -18,7 +19,7 @@ keywords:
 - node中的全局对象为**global**而不是window
 - process 就是global对象的属性
 - 描述了当前nodejs进程状态的对象
-<!-- more  -->
+
 下面列举几个常用的process属性
 
 属性 | 描述
@@ -33,7 +34,8 @@ platform | 运行程序所在的平台系统 'darwin', 'freebsd', 'linux', 'suno
 cwd() | 返回当前进程的工作目录
 
 例如：返回a+b的值
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 //默认情况下输入流是关闭的，要监听处理输入流数据，首先要开启输入流
 process.stdin.resume();
 
@@ -51,8 +53,8 @@ process.stdin.on('data',function(chunk){
     process.stdout.write('a+b= '+ (a+ b));
   }
 });
-
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
 ### setTimeout(cb, ms)
 ### clearTimeout(t)

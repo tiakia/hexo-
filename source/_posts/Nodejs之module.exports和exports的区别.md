@@ -8,7 +8,9 @@ thumbnail:
 keywords:
 ---
 刚开始看node被module.exports和exports给搞混了，在网上搜到一个很好的例子
-```
+<!-- more -->
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 var a = {num: 1};
 var b = a;
 console.log(a); //{num: 1}
@@ -21,8 +23,9 @@ console.log(b);//{num: 2}
 var b = {num: 3}
 console.log(a);//{num: 2}
 console.log(b);//{num: 3}
-```
-<!-- more -->
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
 **解释** a 是一个对象，b是对a的引用，即a和b指向同一块内存，所以前两个输出一样。当对 b 作修改时，即 a 和 b 指向同一块内存地址的内容发生了改变，所以 a 也会体现出来，所以第三四个输出一样。当 b 被覆盖时，b 指向了一块新的内存，a 还是指向原来的内存，所以最后两个输出不一样。
 
 
@@ -31,22 +34,24 @@ console.log(b);//{num: 3}
 2. exports 是指向的 module.exports的引用
 3. require() 返回的是module.exports 而不是 exports
 
-##### exports是引用module.exports的值。module.exports被改变的时候，exports不会被改变，而模块导出的时候，真正导出的执行是module.exports，而不是exports
+{% alert info %}
+exports是引用module.exports的值。module.exports被改变的时候，exports不会被改变，而模块导出的时候，真正导出的执行是module.exports，而不是exports
+{% endalert %}
 foo.js
-```
-
-
+{% tabbed_codeblock foo.js  %}
+<!-- tab js -->
 module.exports = {a: 2};
 exports.a = 1;
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
 test.js
-
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 var x = require('./foo.js');
-
 console.log(x.a); //2
-
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
 **exports在module.exports 被改变后，失效。**
 
 #### module.exports = View
@@ -55,7 +60,8 @@ console.log(x.a); //2
 
 
 foo.js
-```
+{% tabbed_codeblock foo.js  %}
+<!-- tab js -->
 function View(){
 
 }
@@ -69,13 +75,15 @@ View.test1 = function(){
 }
 
 module.exports = View;
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
 test.js
-
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
 var x = require('./foo.js');
 
 console.log(x.test);//undefined
 console.log(x.test1);//[Function]
 x.test1(); //test1
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}

@@ -1,15 +1,15 @@
 ---
 title: js原型链新理解
-tags: [javaScript]
+tags: [javascript]
 date: 2018-04-10 17:35:08
-categories:
+categories: JavaScript
 description:
 thumbnail:
 keywords:
 ---
 ### 对象都是由函数创建的
-
-```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
         // 对象都是由函数创建的
         //var obj = { a: 10, b: 20 };
         //var arr = [5, 'x', true];
@@ -22,24 +22,31 @@ keywords:
         arr[0] = 5;
         arr[1] = 'x';
         arr[2] = true;
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
 <!-- more -->
 ###  函数也是一种对象
   - 他也是属性的集合，你也可以对函数进行自定义属性。
-  ```
-    function Fn() { }
+  {% tabbed_codeblock  test.js  %}
+  <!-- tab js -->
+      function Fn() { }
     Fn.prototype.name = 'xxx';
     Fn.prototype.getYear = function () {
         return 1988;
     };
-  ```
+  <!-- endtab -->
+  {% endtabbed_codeblock %}
+
   - <font color=#f50>  每个函数都有一个属性叫做prototype。</font>
   - prototype的属性值是一个对象（属性的集合），默认的只有一个叫做constructor的属性，指向这个函数本身。
-  ```
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
     var fn = new Fn();
     console.log(fn.name); // xxx
     console.log(fn.getYear()); // 1988
-  ```
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
 > 代码解释：Fn是一个函数，fn对象是从Fn函数new出来的，这样fn对象就可以调用Fn.prototype中的属性。
 > 因为每个对象都有一个隐藏的属性——`__proto__`，这个属性引用了创建这个对象的函数的prototype。即：`fn.__proto__=== Fn.prototype`

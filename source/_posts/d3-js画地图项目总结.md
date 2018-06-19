@@ -1,10 +1,10 @@
 ---
 title: d3.js画地图项目总结
-tags: [javascript]
+tags: [javascript,d3]
 date: 2018-03-12 11:00:58
-categories: javaScript
+categories: JavaScript
 description:
-thumbnail:
+thumbnail: http://ostu98x74.bkt.clouddn.com/d3hangyou.png
 keywords: d3
 ---
 ![航油](http://ostu98x74.bkt.clouddn.com/d3hangyou.png)

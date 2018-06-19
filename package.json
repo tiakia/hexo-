@@ -8,6 +8,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "hexo": "^3.2.0",
+    "hexo-algoliasearch": "^0.3.0",
     "hexo-baidu-url-submit": "0.0.5",
     "hexo-deployer-git": "^0.3.1",
     "hexo-deployer-heroku": "^0.1.2",

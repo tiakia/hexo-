@@ -3,14 +3,16 @@ title: hexo+github+域名搭建自己的博客一
 date: 2017-07-11 21:10:05
 tags: 教程
 categories: hexo
+thumbnail: http://ostu98x74.bkt.clouddn.com/hexo/search.png
 ---
 
 我是先注册的域名，我们就先从注册域名开始吧
 
 1. 登录[万网](https://wanwang.aliyun.com)
+    <!-- more -->
 2. 输入一个你喜欢的域名，eg: baidu
     <img src='http://ostu98x74.bkt.clouddn.com/hexo/search.png'/>
-    <!-- more -->
+
 3. 搜索结果会出现一群你输入的域名，区别就是后缀名不一样，com的一般都被注册了  你可以选择一个没有被注册的你喜欢的，把它买下来。（便宜点就行）
     <img src='http://ostu98x74.bkt.clouddn.com/hexo/searchResult.png'/>
 4. 解析域名，进入控制台 - 域名与网站（万网） - 域名 

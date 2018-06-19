@@ -2,7 +2,7 @@
 title: js中的深拷贝和浅拷贝
 tags: [javascript]
 date: 2017-10-17 12:36:37
-categories: javaScript
+categories: JavaScript
 description:
 thumbnail:
 keywords:

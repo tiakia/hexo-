@@ -5,11 +5,13 @@
 # Site
 title: Tiankai's Blog
 subtitle: 或碌碌无为,或轰轰烈烈
-description: 
+description:
 author: tiankai
 language: zh-CN
 timezone:
-keywords: Hexo,github,react-native,git
+keywords:
+  - hexo
+  - javascript
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.tiankai.party
@@ -34,7 +36,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -62,9 +64,25 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+##plugins:
+algolia:
+  appId: "7GVIR59BZ5"
+  apiKey: "4d0694b948fabf04f68e0dc9d1e4bbd3"
+  adminApiKey: "0b6ef78aae896cbdfcc3dc4343389b8c"
+  chunkSize: 5000
+  indexName: "my-hexo-blog"
+  fields:
+      - title
+      - date
+      - permalink
+      - thumbnailImageUrl
+      - tags
+      - categories
+      - excerpt
+      - excerpt:strip
 ## Themes: https://hexo.io/themes/
-theme:  yilia
-        #next
+theme:  tranquilpeak
+        #yilia
         #material
 
 # Deployment
@@ -83,20 +101,21 @@ baidu_url_submit:
   host: www.tiankai.party # 在百度站长平台中注册的域名,虽然官方推荐要带有 www, 但可以不带.
   token: QYXtYmmEC8lE6XEe # 你的秘钥,每个人都不一样,获取方法在下面
   path: baidu_urls.txt # 文本文档的地址,新链接会保存在此文本文档里
-# 代码高亮
-prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
-  theme: 'duotone-space'
-  line_number: false    # default false
+
 sitemap:
   path: sitemap.xml
+
 baidusitemap:
   path: baidusitemap.xml
 # 本地搜索
 search:
   path: search.xml
   field: all
-
+# RSS feed
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
 marked:
   gfm: true
   breaks: flase

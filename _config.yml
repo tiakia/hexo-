@@ -72,14 +72,14 @@ algolia:
   chunkSize: 5000
   indexName: "my-hexo-blog"
   fields:
-      - title
-      - date
-      - permalink
-      - thumbnailImageUrl
-      - tags
-      - categories
-      - excerpt
-      - excerpt:strip
+    - title
+    - date
+    - permalink
+    - thumbnailImageUrl
+    - tags
+    - categories
+    - excerpt
+    - excerpt:strip
 ## Themes: https://hexo.io/themes/
 theme:  tranquilpeak
         #yilia
@@ -111,6 +111,8 @@ baidusitemap:
 search:
   path: search.xml
   field: all
+  format: html
+  limit: 10000
 # RSS feed
 feed:
     type: atom

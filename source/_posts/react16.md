@@ -30,6 +30,7 @@ react16 新的生命周期
 #### getSnapshotBeforeUpdate
 
 {% hl_text red %}完整的生命周期流程（按顺序）：{% endhl_text %}
+<!-- more -->
 ### 组件进入挂载阶段（Mounting）：
 
 ##### constructor

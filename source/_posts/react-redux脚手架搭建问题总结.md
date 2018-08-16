@@ -30,7 +30,7 @@ comments: true
 8. sass/less
 9. 重复渲染问题处理
 10. webpack 打包第三方库
-
+<!-- more -->
 ##### babel配置
 ```
 {

@@ -28,12 +28,13 @@ react16 新的生命周期
 
 #### getDerivedStateFromProps
 #### getSnapshotBeforeUpdate
-
-{% hl_text red %}完整的生命周期流程（按顺序）：{% endhl_text %}
 <!-- more -->
-### 组件进入挂载阶段（Mounting）：
+{% hl_text red %}完整的生命周期流程（按顺序）：{% endhl_text %}
 
-##### constructor
+
+<h3>组件进入挂载阶段（Mounting）：</h3>
+
+<h4> constructor</h4>
 组件的构造函数可以在这里进行 state 初始化
 
 {% tabbed_codeblock  test.js  %}
@@ -51,10 +52,14 @@ class ExampleComponent extends Component {
 {% endtabbed_codeblock %}
 
 
-##### getDerivedStateFromProps
+<h5> getDerivedStateFromProps</h5>
+{% codeblock  test.js %}
 static getDerivedStateFromProps(nextProps, prevState)
+{% endcodeblock %}
 
-构造函数初始化后进入该生命周期，取代原先的 componentWillReceiveProps
+
+构造函数初始化后进入该生命周期，取代原先的 {% hl_text red %}componentWillReceiveProps{% endhl_text %}
+
 
 - 不能在该函数中使用 this 
 - 接收新的props，然后决定是否更新 旧的 state
@@ -96,18 +101,21 @@ render 方法 返回组件要渲染的东西
 组件装载后调用，可以在这里请求数据，操作DOM 节点。
 
 ### 更新阶段（Update）
+
+{% hl_text red %}更新阶段生命周期函数调用：{% endhl_text %}
+
+<br/>
+</ul>
+<li>getDerivedStateFromProps</li>
+<li>shouldComponentUpdate</li>
+<li>render</li>
+<li>getSnapshotBeforeUpdate</li>
+<li>componentDidUpdate</li>
+</ul>
+
+<h4>getDerivedStateFromProps</h4>
 当组件的props改变，或者组件内部调用了 setState 或者 forceUpdate 会发生
-
-{% hl_text green %}更新阶段生命周期函数调用：{% endhl_text %}
-- getDerivedStateFromProps
-- shouldComponentUpdate
-- render
-- getSnapshotBeforeUpdate
-- componentDidUpdate
-
-#### getDerivedStateFromProps
-
-#### shouldComponentUpdate
+<h4>shouldComponentUpdate</h4>
 {% hl_text red %}shouldComponentUpdate(nextProps, nextState){% endhl_text %}
 
 在组件 触发 render 之前都会调用这个函数 返回一个布尔值，如果返回  true 组件触发 render 渲染，返回 false 组件不触发 render 函数，默认返回true，所以我们需要在函数中 比较 `this.props` 和 `nextProps` 以及 `this.state` 和 `nextState` 来决定是否需要 触发 render 函数渲染
@@ -208,7 +216,7 @@ class ExampleComponent extends PureComponent {
 <!-- endtab -->
 {% endtabbed_codeblock %}
 
-#### componentDidUpdate
+<h4>componentDidUpdate</h4>
 
 {% hl_text red %}componentDidUpdate(prevProps, prevState, snapshot){% endhl_text %}
 

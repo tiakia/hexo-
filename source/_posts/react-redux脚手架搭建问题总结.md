@@ -30,9 +30,13 @@ comments: true
 8. sass/less
 9. 重复渲染问题处理
 10. webpack 打包第三方库
+
 <!-- more -->
-##### babel配置
-```
+
+<h5>babel配置</h5>
+
+{% tabbed_codeblock .babelrc  %}
+<!-- tab js -->
 {
   "presets":[
     "react",
@@ -62,26 +66,34 @@ comments: true
     "syntax-dynamic-import" // import() 函数
   ]
 }
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
 ##### resolve 配置
 在文件中可以直接使用 `src` 关键字 来引入文件
-```
-  resolve: {
-    alias: {
-        static: Path('../static'),
-        src: Path('../src')
-    }
+{% tabbed_codeblock webpack.common.js  %}
+<!-- tab js -->
+resolve: {
+  alias: {
+      static: Path('../static'),
+      src: Path('../src')
   }
+}
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
-```
 `Path`是自己封装的
-```
+{% tabbed_codeblock webpack.common.js  %}
+<!-- tab js -->
 const Path = (filePath) => path.join(path.resolve(__dirname,filePath));
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
 ##### react-hot-loader
 热更新使用的是 `react-hot-loader` 这个插件，可以在不刷新 state 的时候，刷新页面
 入口文件配置：
-```
+{% tabbed_codeblock webpack.dev.js  %}
+<!-- tab js -->
   entry: {
       index: [
           `webpack-dev-server/client?http://localhost:${AppPort}`,
@@ -91,22 +103,26 @@ const Path = (filePath) => path.join(path.resolve(__dirname,filePath));
           Path('../src/main.js')
       ]
   },
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
-```
 `transform-runtime` 只会对es6的语法进行转换，而不会对新api(Set、Maps等)进行转换。如果需要转换新api，就要引入`babel-polyfill`
 
 ##### 为什么需要引入 babel-runtime ?
   `babel-polyfill` 通过帮助函数(helper) 实现es6功能后，会重复出现在一些模块里，导致编译后的代码体积变大。Babel 为了解决这个问题，提供了单独的包 `babel-runtime` 供编译模块复用工具函数。这时候就需要使用 `transform-runtime`：启用 `babel-runtime`，以避免编译输出的重复问题
 ###### 热更新还需俩个插件
-```
+{% tabbed_codeblock webpack.dev.js  %}
+<!-- tab js -->
   // 显示 模块的 相对路径
   new webpack.NamedModulesPlugin(),
   // 浏览器 刷新
   new webpack.HotModuleReplacementPlugin(),
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
-```
 ##### 代码分割配置
-```
+{% tabbed_codeblock webpack.dev.js  %}
+<!-- tab js -->
   optimization: {
     minimize: false,
     runtimeChunk: true,
@@ -123,12 +139,14 @@ const Path = (filePath) => path.join(path.resolve(__dirname,filePath));
       }
     }
   }
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
-```
 这个暂定这个配置，后期优化后，会更新上来
 ##### HthmlWebpackPlugin
 插入js使用 assetHtmlPlugin
-```
+{% tabbed_codeblock webpack.dev.js  %}
+<!-- tab js -->
   new HtmlWebpackPlugin({
     title: 'React-Redux-App',
     inject: true,
@@ -145,20 +163,26 @@ const Path = (filePath) => path.join(path.resolve(__dirname,filePath));
       includeSourcemap: false
     }
   ]),
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
-```
 
 ##### webpack.dll.config.js
 打包第三方公共的库
 webpack.dev.js
-```
+{% tabbed_codeblock webpack.dev.js  %}
+<!-- tab js -->
 new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require(path.resolve(__dirname, '../static/vendors-manifest.json'))
   }),
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
 webpack.dll.config.js
-```
+
+{% tabbed_codeblock webpack.dll.config.js  %}
+<!-- tab js -->
 module.exports = {
   entry: {
     vendors: [
@@ -200,13 +224,17 @@ module.exports = {
   ],
   mode: 'development'
 };
-```
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
+
 项目开始前 要先 运行一下 webpack.dll.config.js
 
 ##### 生产配置
 css压缩:
 loaders
-```
+{% tabbed_codeblock webpack.pro.js  %}
+<!-- tab js -->
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
     {
@@ -235,11 +263,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
       'less-loader'
     ]
   }
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
-```
 js压缩：
 plugins
-```
+
+{% tabbed_codeblock webpack.pro.js  %}
+<!-- tab js -->
     new UglifyJsPlugin({
         sourceMap: true,
         test: /\.jsx?$/i,
@@ -265,5 +296,6 @@ plugins
     filename: "[name].css",
     chunkFilename: "[id].css"
   }),
+<!-- endtab -->
+{% endtabbed_codeblock %}
 
-```

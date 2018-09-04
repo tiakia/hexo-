@@ -8,7 +8,7 @@ keywords:
 - getDerivedStateFromProps
 - getSnapshotBeforeUpdate
 clearReading: true
-thumbnailImage:
+thumbnailImage: http://ostu98x74.bkt.clouddn.com/react/react16%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png
 thumbnailImagePosition: left  //缩略图显示的位置，上下左右都可以
 autoThumbnailImage: true
 metaAlignment: center  //文章页图片上的文字居中显示
@@ -19,7 +19,7 @@ coverSize: full
 comments: true
 ---
 react16 移除的生命周期
-
+<!-- more -->
 #### componentWillMount
 #### componentWillReceiveProps
 #### componentWillUpdate
@@ -28,7 +28,8 @@ react16 新的生命周期
 
 #### getDerivedStateFromProps
 #### getSnapshotBeforeUpdate
-<!-- more -->
+整体生命周日流程图：
+![react16](http://ostu98x74.bkt.clouddn.com/react/react16%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 {% hl_text red %}完整的生命周期流程（按顺序）：{% endhl_text %}
 
 

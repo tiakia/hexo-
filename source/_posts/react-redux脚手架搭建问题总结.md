@@ -299,3 +299,7 @@ plugins
 <!-- endtab -->
 {% endtabbed_codeblock %}
 
+
+{% alert info %}
+[项目链接](https://github.com/tiakia/react-redux-app)
+{% endalert %}

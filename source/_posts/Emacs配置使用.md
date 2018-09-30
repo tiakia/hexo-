@@ -92,11 +92,11 @@ keywords: emacs
 {% tabbed_codeblock markdown %}
 <!-- tab md -->
 | Name   | Age | Occupation    |
-|--------+-----+---------------|
+|--------|-----|---------------|
 | Allen  |  15 | Teacher       |
 | Clyve  |  34 | Office-worker |
 | Barney |  65 | Worker        |
-|--------+-----+---------------|
+|--------|-----|---------------|
 
 <!-- endtab -->
 {% endtabbed_codeblock %}
@@ -131,18 +131,8 @@ C-c & C-e
 
 #### org 输入代码
 
-- {% hl_text red %}
-输入< + s & 敲 tab键
-{% endhl_text %} 生成代码块,填写 {% hl_text danger %}
-mode
-{% endhl_text %}
-- {% hl_text red %}
-C-c $ '
-{% endhl_text %} 到相应的 {% hl_text red %}
-mode
-{% endhl_text %} 编写代码,编写完成后 {% hl_text red %}
-C-c & '
-{% endhl_text %}返回
+- 输入 `<s` 敲 tab 键 生成代码块,填写 mode
+- `C-c '` 到相应的 mode 编写代码,编写完成后 `C-c '`返回
 
 {% tabbed_codeblock test %}
 <!-- tab org -->

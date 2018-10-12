@@ -28,7 +28,7 @@ react16 新的生命周期
 
 #### getDerivedStateFromProps
 #### getSnapshotBeforeUpdate
-整体生命周日流程图：
+整体生命周期流程图：
 ![react16](http://ostu98x74.bkt.clouddn.com/react/react16%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 {% hl_text red %}完整的生命周期流程（按顺序）：{% endhl_text %}
 

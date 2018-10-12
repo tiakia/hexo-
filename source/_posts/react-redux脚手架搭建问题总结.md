@@ -26,7 +26,7 @@ comments: true
 4. react-router-dom 和 redux 整合
 5. redux-saga
 6. react-router 动态配置 react-loadable
-7. react-router-config 动态加载路由
+7. react-router-config 静态路由
 8. sass/less
 9. 重复渲染问题处理
 10. webpack 打包第三方库

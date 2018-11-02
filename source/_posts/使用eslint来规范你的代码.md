@@ -19,6 +19,22 @@ comments: true
 使用自定义的`eslint`规则结合编辑器来规范你平时的代码编写风格，我这里配置了 `vscode` 和 `webstorm` 俩个编辑器的 在校验规则的同时，可以自动把你的代码格式化。如果你的电脑配置可以的话建议你使用`webstorm`，虽然`vscode`可以任意安装插件，但是论功能的完善还是`webstorm`更甚一筹
 
 <!-- more -->
+### 准备工作
+全局安装
+{% codeblock  %}
+npm install -g eslint
+npm install -g prettier
+npm install -g eslint-plugin-prettier
+{% endcodeblock %}
+
+react相关
+{% codeblock  %}
+npm install -g babel-eslint
+npm install -g eslint-plugin-react
+npm install -g eslint-plugin-jsx-a11y
+npm install -g eslint-plugin-import
+{% endcodeblock %}
+
 
 ### vscode
 

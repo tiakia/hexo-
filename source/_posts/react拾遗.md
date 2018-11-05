@@ -203,3 +203,82 @@ class NameForm extends React.Component {
 #### React16 生命周期
 
 [react16生命周期](http://www.tiankai.party/react16.html)
+
+
+#### React 高阶组件
+
+在组件内部对旧的组件进行封装，返回一个新的组件。
+{% tabbed_codeblock  test.js %}
+<!-- tab js -->
+function HOC(WrappedComponent) {
+    return class Test extends Component {
+        render() {
+            const newProps = {
+                title: "New Header",
+                footer: false,
+                showFeatureX: false,
+                showFeatureY: true
+            }
+
+            return <WrappedComponent {...this.props} {...newProps}/>
+        }
+    }
+}
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
+#### React Context
+{% tabbed_codeblock  test.js  %}
+<!-- tab js -->
+const { Provider, Consumer } = React.createContext("light");
+
+class App extends Component {
+    render() {
+        reutrn (
+            <Provider value={"dark"}>
+                <ToolBar/>
+            </Provider>
+        )
+    }
+}
+
+functoin ToolBar() {
+    reutrn (
+        <Consumer>
+            {
+                value => (
+                    <button>{value}</button>
+                )
+            }
+        </Consumer>
+    )
+}
+
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
+#### react 16.6 lazy
+
+{% tabbed_codeblock  test.js %}
+<!-- tab js -->
+import React, {lazy, Suspense} from 'react';
+const OtherComponent = lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OtherComponent />
+    </Suspense>
+  );
+}
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
+
+#### componentDitCatch()
+
+#### static getDerivedStateFromError()
+
+#### static getDerivedStateFromProps()
+
+#### getSnapshotBeforeUpdate()

@@ -61,7 +61,7 @@ module.exports = {
 
     // 选择 eslint 插件
     //plugins: ["prettier", "vue"],
-
+    
     // react
     extends: [
         'prettier',
@@ -69,11 +69,11 @@ module.exports = {
         "plugin:react/recommended"
     ],
     plugins: ['prettier', 'react', 'jsx-a11y'],
-
+    
     // 不需要框架
     // extends: ['airbnb-base', 'prettier'],
     // plugins: ['prettier'],
-
+    
     // 自定义 eslint 检查规则
     rules: {
         //箭头函数前后俩个空格
@@ -405,18 +405,23 @@ module.exports = {
 ### webstorm
 相较于`vscode`来说`webstorm`的配置就有点复杂了。
 
-- 编辑器安装`eslint` 和 `pretteir` 插件
+#### 第一步： 
+编辑器安装`eslint` 和 `pretteir` 插件
   - WebStorm 2018.1 和以上的版本
   - Webstorm 2017.3 和更早的版本
- ###### `prettier`
- 1. WebStorm 2018.1 和以上的版本
+
+#### Prettier
+
+1.WebStorm 2018.1 和以上的版本
+
  - 官方已经默认支持了 `prettier`,可以在`File --- settings --- Languages & Frameworks --- JavaScript --- Prettier` 中找到，找到后需要配置一下。
  - `Node interpreter` --- 找到你安装的 `node.exe` 的目录。
    - eg: `C:\Pragram Files\nodejs\node.exe`
  - `Prettier package` --- 找到你全局安装的 prettier 目录
    - eg: `~\AppData\Roaming\npm\node_modules\prettier`
- 2. Webstorm 2017.3 和更早的版本
- 这个没跟着配过，我的版本是 2018 的，这个是从官网扒下来的，文末有链接。
+
+2.Webstorm 2017.3 和更早的版本这个没跟着配过，我的版本是 2018 的，这个是从官网扒下来的，文末有链接。
+
  - 转到`首选项 | 工具 | 外部工具`,
  - 然后单击`+`添加新工具。`Name`填写为Prettier,
  - `Programs` 填写全局安装的 `prettier.cmd`
@@ -426,7 +431,9 @@ module.exports = {
  - 按`Cmd/Ctrl-Shift-A`（查找操作），搜索`Prettier`，然后点击`Enter`。
  - `prettier` 将针对当前文件运行
 
- ###### `eslint`
+
+### eslint
+
  `eslint`没找以前的版本，直接找的2018的，感兴趣的可以去配一下，和`prettier`大同小异
  - 在`File --- settings --- Languages & Frameworks --- JavaScript --- Code Quality Tools --- ESLint` 中找到配置`eslint`
  - `Node interpreter` --- 找到你安装的 `node.exe` 的目录。
@@ -435,10 +442,11 @@ module.exports = {
    - eg: `~\AppData\Roaming\npm\node_modules\eslint`
  - `Configuration file` 中选择 `Configuration file` 找到你自己配置的`eslintrc.js`文件
 
-- 配置 `Ctrl + s ` 自动格式化代码
+#### 第二步
+配置 `Ctrl + s ` 自动格式化代码
 1. `Edit - Macros - Start Macros Recording`
 2. 按住 `Ctrl-Shift-Alt-p` 然后 再按 `Ctrl-s`
-3. 点击右下角的红色圆点停止录制宏，输入名字 eg: prettier code and Save
+3. 点击右下角的红色圆点停止录制宏，输入名字 eg: `prettier code and Save`
 4. 打开设置 `File --- settings --- Keymap`,搜索刚刚保存的 宏的名字
 5. 双击 选择 `Add Keyboard Shortcut` 弹出框出来后 键盘上按 `Ctrl-S`,选择 `Remove`
 6. finish 完成了。

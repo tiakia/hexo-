@@ -149,7 +149,7 @@ class NameForm extends React.Component {
     handleNameChange(event) {
         this.setState({ name: event.target.value });
     };
-
+    
     render() {
         return (
             <div>
@@ -227,37 +227,8 @@ function HOC(WrappedComponent) {
 <!-- endtab -->
 {% endtabbed_codeblock %}
 
-#### React Context
-{% tabbed_codeblock  test.js  %}
-<!-- tab js -->
-const { Provider, Consumer } = React.createContext("light");
-
-class App extends Component {
-    render() {
-        reutrn (
-            <Provider value={"dark"}>
-                <ToolBar/>
-            </Provider>
-        )
-    }
-}
-
-functoin ToolBar() {
-    reutrn (
-        <Consumer>
-            {
-                value => (
-                    <button>{value}</button>
-                )
-            }
-        </Consumer>
-    )
-}
-
-<!-- endtab -->
-{% endtabbed_codeblock %}
-
 #### react 16.6 lazy
+类似于`react-loadable`
 
 {% tabbed_codeblock  test.js %}
 <!-- tab js -->
@@ -273,12 +244,113 @@ function MyComponent() {
 }
 <!-- endtab -->
 {% endtabbed_codeblock %}
+#### React Context
+- ThemeContext.js
+
+{% tabbed_codeblock ThemeContext.js %}
+<!-- tab js -->
+import React from "react";
+
+export const themes = {
+  light: {
+    foreground: "#000",
+    background: "#eee"
+  },
+  dark: {
+    foreground: "#fff",
+    background: "#222"
+  }
+};
+
+export const ThemeContext = React.createContext(themes.dark);
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
+- App.js
+
+{% tabbed_codeblock App.js %}
+<!-- tab js -->
+import React, { PureComponent } from "react";
+import Tool from './Tool';
+import { ThemeContext, themes } from "./modules/ThemeContext";
+
+const { Provider } = ThemeContext;
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: themes.light
+    };
+    this.changeTheme = this.changeTheme.bind(this);
+  }
+  changeTheme() {
+    this.setState(prev => ({
+      theme: prev.theme === themes.dark ? themes.light : themes.dark
+    }));
+  }
+  render() {
+    return (
+      <Provider value={this.state.theme}>
+        <Tool changeTheme={this.changeTheme} />
+      </Provider>
+    );
+  }
+}
+<!-- endtab -->
+{% endtabbed_codeblock %}
+
+- Tool.js
+
+```
+import React, { PureComponent } from "react";
+import { ThemeContext, themes } from "./modules/ThemeContext";
+import PropTypes from "prop-types";
+
+const { Consumer } = ThemeContext;
 
 
-#### componentDitCatch()
+class Tool extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Consumer>
+        {value => (
+          <div
+            style={{
+              backgroundColor: value.background,
+              width: "100%",
+              height: "100%"
+            }}
+          >
+            <button
+              style={{
+                backgroundColor: value.foreground,
+                color: value.background,
+                outline: "none",
+                padding: "5px 8px",
+                borderRadius: "5px",
+                border: 0,
+                margin: "20px"
+              }}
+              onClick={this.props.changeTheme}
+            >
+              Toggle - Theme -{" "}
+              {value.background === themes.dark.background ? "dark" : "light"}
+            </button>
+          </div>
+        )}
+      </Consumer>
+    );
+  }
+}
 
-#### static getDerivedStateFromError()
+Tool.propTypes = {
+  changeTheme: PropTypes.func,
+  errorAction: PropTypes.func
+};
 
-#### static getDerivedStateFromProps()
-
-#### getSnapshotBeforeUpdate()
+export default Tool;
+```

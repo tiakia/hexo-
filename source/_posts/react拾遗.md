@@ -172,7 +172,7 @@ class NameForm extends React.Component {
 ##### uncontrolled
 表单数据由DOM本身处理。即不受`setState()`的控制，与传统的HTML表单输入相似，input输入值即显示最新值（使用 `ref` 从DOM获取表单值）
 {% tabbed_codeblock  test.js %}
-<!-- tab  js -->
+<!-- tab js -->
 class NameForm extends React.Component {
   constructor(props) {
     super(props);

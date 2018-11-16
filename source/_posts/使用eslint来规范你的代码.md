@@ -393,7 +393,7 @@ module.exports = {
 ```
 "editor.formatOnSave": true,
 "prettier.eslintIntegration": true,
-"eslint.autoFixOnSave": false,
+"eslint.autoFixOnSave": true,
 "eslint.options": {//路径指向自定义的 eslint 规则
     "eslintConfig": "c:/Users/TK/.eslintrc.js"
 },
